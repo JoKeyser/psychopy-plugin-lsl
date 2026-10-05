@@ -2,7 +2,9 @@
 Development and setup guide
 ===============================
 
-This guide explains how to work with the plugin scaffolding in this repository. It is adapted from the `PsychoPy plugin template <https://github.com/psychopy/psychopy-plugin-template>`_.
+This guide explains how to work with the plugin scaffolding in this repository.
+It is adapted from the `PsychoPy plugin template <https://github.com/psychopy/psychopy-plugin-template>`_.
+Also see the `PsychoPy plugin development guide <https://psychopy.org/developers/pluginDevGuide.html>`_ for more information.
 
 .. warning::
 

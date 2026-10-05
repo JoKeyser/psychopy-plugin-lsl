@@ -2,8 +2,9 @@
 
 Explore ways to send messages from a PsychoPy experiment over [Lab Streaming Layer (LSL)](https://labstreaminglayer.org/) and have them included in the shared data file.
 
-> [!NOTE]
-> This project is in the planning stage. The LSL messaging function described here is not implemented, so there is not yet a plugin you can install and use for this purpose.
+> [!WARNING]
+> This project is in the planning stage.
+> The LSL messaging function described here is not implemented, so there is not yet a plugin you can install and use for this purpose.
 
 ## What we hope to make possible
 

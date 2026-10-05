@@ -15,6 +15,8 @@ __pycache__
 .code-profile
 .vscode
 *.code-workspace
+# Built documentation (published to gh-pages by the workflow ./github/workflows/docs.yml)
+docs/
 # PIP
 .pdm-build
 *.egg-info

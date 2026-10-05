@@ -1,8 +1,8 @@
 
-=======================================================
-How to install psychopy-plugin-template
-=======================================================
+========================
+Installing this project
+========================
 
-You can download `psychopy-plugin-template` via pip as follows::
+This project is in the planning stage and is not yet available as a usable LSL messaging plugin. The example code in the repository is inherited from the PsychoPy plugin template and does not provide the planned functionality.
 
-    pip install git+https://github/psychopy/psychopy-plugin-template@main
+Follow the `project repository <https://github.com/JoKeyser/psychopy-plugin-lsl>`_ for development updates.

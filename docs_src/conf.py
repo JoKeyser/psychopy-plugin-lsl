@@ -6,9 +6,9 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'PsychoPy Example Plugin'
-copyright = '2024, Open Science Tools Ltd.'
-author = 'Open Science Tools Ltd.'
+project = 'PsychoPy plugin for LSL'
+copyright = '2026, Johannes Keyser'
+author = 'Johannes Keyser'
 release = '0.0.0'
 
 # -- General configuration ---------------------------------------------------

@@ -29,6 +29,9 @@ extensions = [
     'sphinx.ext.viewcode'
 ]
 
+# Importing psychopy.visual creates an OpenGL context, which segfaults on headless CI runners
+autodoc_mock_imports = ['psychopy.visual']
+
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output

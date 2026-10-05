@@ -1,5 +1,5 @@
 import wx
-from psychopy.app.ribbon import FrameRibbonPluginSection
+from psychopy_app.ribbon import FrameRibbonPluginSection
 
 
 class ExamplePluginRibbonSection(FrameRibbonPluginSection):

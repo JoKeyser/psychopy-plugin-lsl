@@ -29,8 +29,14 @@ extensions = [
     'sphinx.ext.viewcode'
 ]
 
-# Importing psychopy.visual creates an OpenGL context, which segfaults on headless CI runners
-autodoc_mock_imports = ['psychopy.visual']
+# BF: Mock gltools so the docs build does not segfault.
+# See explanation in upstream PR, https://github.com/psychopy/psychopy-plugin-template/pull/9
+# This is a temporary workaround. It should be removed once psychopy.tools.gltools
+# no longer queries OpenGL at import time (which triggers this crash).
+import sys
+from unittest import mock
+
+sys.modules['psychopy.tools.gltools'] = mock.MagicMock()
 
 
 # -- Options for HTML output -------------------------------------------------

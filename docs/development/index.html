@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Development and setup guide &#8212; PsychoPy plugin for LSL 0.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=536c50fe" />
+    <link rel="stylesheet" type="text/css" href="../_static/psychopy.css?v=4aac8839" />
+    <script src="../_static/documentation_options.js?v=d20be8f5"></script>
+    <script src="../_static/doctools.js?v=b682be12"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="ExampleComponent" href="../builder/components/ExampleComponent/" />
+    <link rel="prev" title="PsychoPy plugin for LSL" href="../" />
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-96LHQFPY1F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-96LHQFPY1F');
+    </script>
+
+    <!-- News reel -->
+     <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // get all news reels
+        for (let reel of document.getElementsByClassName("news-reel")) {
+          // get all cards
+          let cards = Array.from(reel.getElementsByClassName("sd-card"))
+          // start off with the first card
+          reel.showItem = 0;
+          // define function to show the next node
+          let update = () => {
+            for (let item of cards) {
+              // get index
+              let index = cards.indexOf(item);
+              // show/hide according to index match
+              if (index === reel.showItem) {
+                console.log("Showing news item:", item)
+                item.style.display = "block";
+              } else {
+                item.style.display = "none";
+              }
+            }
+            // iterate shown index
+            reel.showItem += 1;
+            if (reel.showItem >= cards.length) {
+              reel.showItem -= cards.length;
+            }
+          }
+          // run once now
+          update()
+          // schedule to run every 5s
+          window.setInterval(update, 5000);
+        }
+      }, false);    
+     </script>
+
+    <!-- Matomo -->
+    <script>
+      var _paq = window._paq = window._paq || [];
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+      _paq.push(["setCookieDomain", "*.psychopy.org"]);
+      _paq.push(["setDomains", ["*.psychopy.org","*.discourse.psychopy.org"]]);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="//analytics.opensciencetools.org/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '3']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//analytics.opensciencetools.org/matomo.php?idsite=3&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+    <!-- End Matomo Code -->
+
+
+  </head><body>
+  
+    <!-- nav bar -->
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top" height="65px">
+    <div class="container">
+      <!-- brand logo -->
+      <a class="navbar-brand" href="../">
+        
+        <img src="../_static/navbar_plugin.png" alt="PsychoPy Logo">
+        
+      </a>
+      <!-- gap between logo and links -->
+      <div style="flex-grow: 1;"></div>
+      <!-- nav links -->
+      <div class="collapse navbar-collapse nav-collapse w-100 pull-right">
+        <ul class="nav navbar-nav ml-auto">
+          
+          
+            
+<!-- insert a regular link -->
+<li>
+    <a href="../download/">
+        Install
+    </a>
+</li>
+
+
+          
+          
+          
+          <li><a href="https://plugins.psychopy.org/directory.html" class="return-btn">plugins.psychopy.org</a></li>
+          
+        </ul>
+      </div>
+      <!-- shown when screen is too small for full links, clicking it toggles links shown -->
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+  </div>
+
+<!--
+
+   -->
+
+<!-- social media icon bar -->
+
+<div class="social-bar">
+
+<a href="https://github.com/psychopy/psychopy" class="github">
+    <i class="fab fa-github"></i>
+</a>
+
+<a href="https://bsky.app/profile/psychopy.org" class="bluesky">
+    <i class="fab fa-bluesky"></i>
+</a>
+
+<a href="https://www.youtube.com/watch?v=VV6qhuQgsiI&list=PLFB5A1BE51964D587" class="youtube">
+    <i class="fab fa-youtube"></i>
+</a>
+
+<a href="https://www.facebook.com/PsychoPy/" class="facebook">
+    <i class="fab fa-facebook"></i>
+</a>
+
+<a href="https://www.linkedin.com/company/open-science-tools" class="linkedin">
+    <i class="fab fa-linkedin"></i>
+</a>
+
+<a href="https://twitter.com/psychopy" class="twitter">
+    <i class="fab fa-x-twitter"></i>
+</a>
+
+</div>
+
+  
+
+<main>
+  
+  <section id="development-and-setup-guide">
+<h1>Development and setup guide<a class="headerlink" href="#development-and-setup-guide" title="Link to this heading">¶</a></h1>
+<p>This guide covers developing and testing this template with PsychoPy Studio as a Linux AppImage.
+It is adapted from the <a class="reference external" href="https://github.com/psychopy/psychopy-plugin-template">PsychoPy plugin template</a>.
+For general plugin guidance, see the <a class="reference external" href="https://psychopy.org/developers/pluginDevGuide.html">PsychoPy plugin development guide</a>.</p>
+<p>The template is a helpful starting point, though some of its setup guidance still reflects the older wxPython app.
+PsychoPy Studio is the newer Svelte/Electron rewrite, first released in 2026, and is intended to replace that app; these instructions adapt this project to this transition and focus on Studio for now.
+See the <a class="reference external" href="https://github.com/psychopy/psychopy-studio#readme">Studio project overview</a> and the <a class="reference external" href="https://github.com/psychopy/psychopy-app#readme">PsychoPy App overview</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This project is still a scaffold. It does not implement the planned LSL messaging feature.</p>
+</div>
+<section id="set-up-the-development-environment">
+<h2>Set up the development environment<a class="headerlink" href="#set-up-the-development-environment" title="Link to this heading">¶</a></h2>
+<p>For now, this project deliberately uses one Studio-managed Python environment for plugin development, tests, documentation, and Builder integration.
+This keeps the workflow simple and ensures tests use the same PsychoPy version as Studio, at the cost of keeping development tools in that environment instead of isolating them separately.
+The steps below use the AppImage’s portable-config mode to keep this development environment separate from Studio’s regular user configuration.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All paths and the Studio version shown below are examples from the verified setup.
+Replace them with the AppImage location and version on your machine.</p>
+</div>
+<ol class="arabic">
+<li><p>Set the path to the Studio AppImage and create a portable config directory.
+This command creates the sidecar directory and exits without launching Studio:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">APPIMAGE</span><span class="o">=</span><span class="s2">"$HOME/apps/PsychoPy_Studio_2026.2.4.AppImage"</span>
+<span class="s2">"$APPIMAGE"</span> <span class="o">--</span><span class="n">appimage</span><span class="o">-</span><span class="n">portable</span><span class="o">-</span><span class="n">config</span>
+</pre></div>
+</div>
+</li>
+<li><p>Launch the AppImage normally.
+While the sidecar directory exists, AppImageKit automatically uses it as <code class="docutils literal notranslate"><span class="pre">XDG_CONFIG_HOME</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">"$APPIMAGE"</span>
+</pre></div>
+</div>
+</li>
+<li><p>On first launch, choose Studio’s <strong>User folder</strong> for Python environments.
+Studio creates the managed environment under
+<code class="docutils literal notranslate"><span class="pre">&lt;AppImage</span> <span class="pre">path&gt;.config/psychopy4/.python/&lt;PsychoPy</span> <span class="pre">version&gt;/</span></code>.
+Close Studio before installing development dependencies.</p></li>
+<li><p>From the repository root, set the interpreter path and install the project and its test/documentation extras:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">APPIMAGE</span><span class="o">=</span><span class="s2">"$HOME/apps/PsychoPy_Studio_2026.2.4.AppImage"</span>
+<span class="n">STUDIO_VERSION</span><span class="o">=</span><span class="mf">2026.2.4</span>
+<span class="n">STUDIO_PYTHON</span><span class="o">=</span><span class="s2">"$</span><span class="si">{APPIMAGE}</span><span class="s2">.config/psychopy4/.python/$</span><span class="si">{STUDIO_VERSION}</span><span class="s2">/bin/python"</span>
+<span class="n">uv</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">python</span> <span class="s2">"$STUDIO_PYTHON"</span> <span class="o">--</span><span class="n">editable</span> <span class="s2">".[tests,docs]"</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>The editable install makes source changes available in Studio’s environment without reinstalling.
+The <code class="docutils literal notranslate"><span class="pre">tests</span></code> extra provides pytest; the <code class="docutils literal notranslate"><span class="pre">docs</span></code> extra provides Sphinx and its theme.
+Run the checks with the same interpreter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">"$STUDIO_PYTHON"</span> <span class="o">-</span><span class="n">m</span> <span class="n">pytest</span>
+<span class="s2">"$STUDIO_PYTHON"</span> <span class="o">-</span><span class="n">m</span> <span class="n">sphinx</span> <span class="n">docs_src</span> <span class="n">docs</span> <span class="o">-</span><span class="n">b</span> <span class="n">dirhtml</span>
+</pre></div>
+</div>
+<p>The tests cover the current scaffold, not the planned LSL functionality.</p>
+</section>
+<section id="writing-plugin-code">
+<h2>Writing plugin code<a class="headerlink" href="#writing-plugin-code" title="Link to this heading">¶</a></h2>
+<p>A PsychoPy plugin is a Python package with entry points that let PsychoPy discover its components and extensions.
+The <code class="docutils literal notranslate"><span class="pre">psychopy_plugin_template</span></code> package contains example Builder, routine, visual, and hardware classes; these are scaffold only.</p>
+<p>For an introduction to PsychoPy plugin development, see the <a class="reference external" href="https://psychopy.org/developers/pluginDevGuide.html">PsychoPy plugin development guide</a>.
+The structure of the planned LSL feature has not yet been decided.</p>
+</section>
+<section id="project-metadata">
+<h2>Project metadata<a class="headerlink" href="#project-metadata" title="Link to this heading">¶</a></h2>
+<p>The root <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> defines package metadata, dependencies, and entry points.
+The distribution is <code class="docutils literal notranslate"><span class="pre">psychopy-plugin-lsl</span></code>; its Python package is still named <code class="docutils literal notranslate"><span class="pre">psychopy_plugin_template</span></code>.
+Keep entry-point targets aligned with the implemented classes. For Studio AppImage, use <code class="docutils literal notranslate"><span class="pre">psychopy.*</span></code> entry points; do not add <code class="docutils literal notranslate"><span class="pre">psychopy_app.*</span></code> unless that module exists in the target environment.</p>
+</section>
+<section id="developing-with-psychopy-studio-on-linux">
+<h2>Developing with PsychoPy Studio on Linux<a class="headerlink" href="#developing-with-psychopy-studio-on-linux" title="Link to this heading">¶</a></h2>
+<p>The AppImage is the application bundle, not its Python environment.
+Studio stores its configuration and managed Python environments separately from the AppImage.
+With default settings, the environment is under <code class="docutils literal notranslate"><span class="pre">$HOME/.config/psychopy4/.python/&lt;PsychoPy</span> <span class="pre">version&gt;/</span></code>.
+The portable-config steps above create a separate environment alongside the AppImage and leave the default environment untouched.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Verified with PsychoPy Studio 2026.2.4: the default environment is <code class="docutils literal notranslate"><span class="pre">$HOME/.config/psychopy4/.python/2026.2.4/</span></code> and uses Python 3.11.13.
+The portable environment is separate; its interpreter also uses Python 3.11.13 and imports PsychoPy 2026.2.4.</p>
+</div>
+<p>After installing the editable project, restart the portable Studio instance.</p>
+<p>Now, in Builder’s <strong>Custom</strong> category, you should see the <strong>Example</strong> component (class <code class="docutils literal notranslate"><span class="pre">ExampleComponent</span></code>) and <strong>Example Standalone</strong> as a separate routine.
+Reinstall after changing entry points or package metadata.</p>
+<p>To remove the development install from the portable environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uv</span> <span class="n">pip</span> <span class="n">uninstall</span> <span class="o">--</span><span class="n">python</span> <span class="s2">"$STUDIO_PYTHON"</span> <span class="n">psychopy</span><span class="o">-</span><span class="n">plugin</span><span class="o">-</span><span class="n">lsl</span>
+</pre></div>
+</div>
+</section>
+<section id="legacy-ribbon-example">
+<h2>Legacy ribbon example<a class="headerlink" href="#legacy-ribbon-example" title="Link to this heading">¶</a></h2>
+<p>The template retains an old-app ribbon example in <code class="docutils literal notranslate"><span class="pre">psychopy_plugin_template/app/ribbon.py</span></code>.
+It imports <code class="docutils literal notranslate"><span class="pre">FrameRibbonPluginSection</span></code> from <code class="docutils literal notranslate"><span class="pre">psychopy_app.ribbon</span></code> and adds a convenience button to the old wxPython app’s ribbons.
+Studio is a separate Svelte/Electron application and does not provide that Python module or consume the old <code class="docutils literal notranslate"><span class="pre">psychopy_app.*</span></code> entry points.
+In Studio 2026.2.4, those entry points caused PsychoPy to fail activation of the entire plugin because <code class="docutils literal notranslate"><span class="pre">psychopy_app</span></code> was unavailable.
+The entry points are therefore removed; the ribbon code remains only as inactive template material and does not add a button to Studio.</p>
+</section>
+<section id="publishing">
+<h2>Publishing<a class="headerlink" href="#publishing" title="Link to this heading">¶</a></h2>
+<p>The repository has a PyPI publishing workflow using trusted publishing, but the project is not ready for release.
+Do not publish until the planned LSL functionality is implemented and the package contents and version tag have been reviewed.</p>
+</section>
+</section>
+
+
+</div>
+<div class="col-md-12 content">
+  <br/><a href="#" class="pull-right">Back to top</a>
+</div>
+<footer class="footer">
+  <div class="container">
+    <span class="pull-right">
+      
+        
+<div id="sourcelink">
+  <a href="https://github.com/psychopy/psychopy/blob/master/docs/source/development.rst"
+     rel="nofollow">Source</a>
+</div>
+      <br/>
+
+          &copy; 2002-2018 <a href="https://www.peirce.org.uk/">Jonathan Peirce</a><br/>
+          &copy; 2019 <a href="https://opensciencetools.org/">Open Science Tools Ltd.</a><br/><br/>
+        PsychoPy<sup>®</sup> and Pavlovia<sup>®</sup> are registered trademarks of Open Science Tools Ltd.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.1.3.<br/><br/>
+    </span>
+
+    <a href="http://www.nottingham.ac.uk/"><img src="../_static/UoN_Supported_RGB.png", alt="Uni of Nottingham" width=200></a>
+  </div>
+
+</footer>
+  </body>
+</html>

@@ -14,13 +14,6 @@ The pages below describe example components and interfaces inherited from the Ps
 
 .. toctree::
    :maxdepth: 1
-   :caption: Added content for the PsychoPy app
-   :glob:
-
-   app/*
-
-.. toctree::
-   :maxdepth: 1
    :caption: Added content for Builder
    :glob:
 

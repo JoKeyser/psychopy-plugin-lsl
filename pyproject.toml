@@ -25,7 +25,6 @@ changelog = "https://github.com/JoKeyser/psychopy-plugin-lsl/blob/main/CHANGELOG
 # dependencies for building the docs
 docs = [
   "psychopy",
-  "psychopy_app",
   "psychopy-sphinx-theme",
   "sphinx",
   "furo",
@@ -33,7 +32,6 @@ docs = [
 # dependencies for running the test suite
 tests = [
   "psychopy",
-  "psychopy_app",
   "pytest",
 ]
 
@@ -53,22 +51,6 @@ ExampleVisualStim = "psychopy_plugin_template.visual.exampleVisualStim:ExampleVi
 # if you want something to be importable from psychopy.hardware, add it here
 ExampleDevice = "psychopy_plugin_template.hardware.exampleDevice:ExampleDevice"
 ExampleResponseDevice = "psychopy_plugin_template.hardware.exampleResponseDevice:ExampleResponseDevice"
-
-[project.entry-points."psychopy_app.builder"]
-# if you want to add a section to the PsychoPy Builder ribbon, add it here
-ExamplePluginRibbonSection = "psychopy_plugin_template.app.ribbon:ExamplePluginRibbonSection"
-
-[project.entry-points."psychopy_app.coder"]
-# if you want to add a section to the PsychoPy Coder ribbon, add it here
-ExamplePluginRibbonSection = "psychopy_plugin_template.app.ribbon:ExamplePluginRibbonSection"
-
-[project.entry-points."psychopy_app.runner"]
-# if you want to add a section to the PsychoPy Runner ribbon, add it here
-ExamplePluginRibbonSection = "psychopy_plugin_template.app.ribbon:ExamplePluginRibbonSection"
-
-[project.entry-points."psychopy_app.themes.icons"]
-# if you want to add icons to the PsychoPy app, add them here
-example = "psychopy_plugin_template.icons.example"
 
 [tool.setuptools.package-data]
 # any resources you want including in the package, add their file extensions here (e.g. "*.wav" if you want audio files)
